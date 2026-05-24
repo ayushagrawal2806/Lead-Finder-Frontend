@@ -98,7 +98,6 @@ function App() {
       <h1>YouTube Lead Finder</h1>
 
       <SearchForm
-        keyword={keyword}
         setKeyword={setKeyword}
         minSubscribers={minSubscribers}
         setMinSubscribers={setMinSubscribers}

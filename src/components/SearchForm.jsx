@@ -1,6 +1,36 @@
-function SearchForm({
-  keyword,
+const categoryKeywords = {
+  "Film & Animation": "film animation movies cinema",
 
+  "Autos & Vehicles": "cars bikes automobile",
+
+  Music: "music singer songs",
+
+  "Pets & Animals": "pets dogs cats animals",
+
+  Sports: "sports football cricket basketball",
+
+  "Travel & Events": "travel vlog tourism",
+
+  Gaming: "gaming gamer pc gaming",
+
+  "People & Blogs": "people blogs lifestyle vlog",
+
+  Comedy: "comedy funny memes",
+
+  Entertainment: "entertainment celebrity viral",
+
+  "News & Politics": "news politics current affairs",
+
+  "Howto & Style": "tutorial style fashion beauty",
+
+  Education: "education tutorial learning",
+
+  "Science & Technology": "technology ai gadgets coding",
+
+  "Nonprofits & Activism": "nonprofit activism charity",
+};
+
+function SearchForm({
   setKeyword,
 
   minSubscribers,
@@ -22,16 +52,25 @@ function SearchForm({
         flexWrap: "wrap",
       }}
     >
-      <input
-        type="text"
-        placeholder="Keyword"
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
+      {/* CATEGORY DROPDOWN */}
+
+      <select
+        onChange={(e) => setKeyword(categoryKeywords[e.target.value])}
         style={{
           padding: "10px",
           width: "250px",
         }}
-      />
+      >
+        <option value="">Select Category</option>
+
+        {Object.keys(categoryKeywords).map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+
+      {/* MIN SUBSCRIBERS */}
 
       <input
         type="number"
@@ -43,6 +82,8 @@ function SearchForm({
         }}
       />
 
+      {/* MAX SUBSCRIBERS */}
+
       <input
         type="number"
         placeholder="Max Subscribers"
@@ -52,6 +93,8 @@ function SearchForm({
           padding: "10px",
         }}
       />
+
+      {/* SEARCH BUTTON */}
 
       <button
         onClick={searchChannels}
