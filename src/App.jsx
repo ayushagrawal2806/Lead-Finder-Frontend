@@ -42,9 +42,6 @@ function App() {
         url += `&maxSubscribers=${maxSubscribers}`;
       }
 
-      console.log("====================================");
-      console.log(url);
-      console.log("====================================");
       const response = await axios.get(url);
 
       setChannels(response.data.channels);
