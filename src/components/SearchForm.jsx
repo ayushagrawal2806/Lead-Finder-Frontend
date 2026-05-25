@@ -1,36 +1,37 @@
-const categoryKeywords = {
-  "Film & Animation": "film animation movies cinema",
+// const categoryKeywords = {
+//   "Film & Animation": "film animation movies cinema",
 
-  "Autos & Vehicles": "cars bikes automobile",
+//   "Autos & Vehicles": "cars bikes automobile",
 
-  Music: "music singer songs",
+//   Music: "music singer songs",
 
-  "Pets & Animals": "pets dogs cats animals",
+//   "Pets & Animals": "pets dogs cats animals",
 
-  Sports: "sports football cricket basketball",
+//   Sports: "sports football cricket basketball",
 
-  "Travel & Events": "travel vlog tourism",
+//   "Travel & Events": "travel vlog tourism",
 
-  Gaming: "gaming gamer pc gaming",
+//   Gaming: "gaming gamer pc gaming",
 
-  "People & Blogs": "people blogs lifestyle vlog",
+//   "People & Blogs": "people blogs lifestyle vlog",
 
-  Comedy: "comedy funny memes",
+//   Comedy: "comedy funny memes",
 
-  Entertainment: "entertainment celebrity viral",
+//   Entertainment: "entertainment celebrity viral",
 
-  "News & Politics": "news politics current affairs",
+//   "News & Politics": "news politics current affairs",
 
-  "Howto & Style": "tutorial style fashion beauty",
+//   "Howto & Style": "tutorial style fashion beauty",
 
-  Education: "education tutorial learning",
+//   Education: "education tutorial learning",
 
-  "Science & Technology": "technology ai gadgets coding",
+//   "Science & Technology": "technology ai gadgets coding",
 
-  "Nonprofits & Activism": "nonprofit activism charity",
-};
+//   "Nonprofits & Activism": "nonprofit activism charity",
+// };
 
 function SearchForm({
+  keyword,
   setKeyword,
 
   minSubscribers,
@@ -54,7 +55,18 @@ function SearchForm({
     >
       {/* CATEGORY DROPDOWN */}
 
-      <select
+      <input
+        type="text"
+        placeholder="Keyword"
+        value={keyword}
+        onChange={(e) => setKeyword(e.target.value)}
+        style={{
+          padding: "10px",
+          width: "250px",
+        }}
+      />
+
+      {/* <select
         onChange={(e) => setKeyword(categoryKeywords[e.target.value])}
         style={{
           padding: "10px",
@@ -68,7 +80,7 @@ function SearchForm({
             {category}
           </option>
         ))}
-      </select>
+      </select> */}
 
       {/* MIN SUBSCRIBERS */}
 
